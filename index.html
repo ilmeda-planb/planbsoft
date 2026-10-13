@@ -3,153 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlanBSoft - Scaling Indie Game Innovation with AI</title>
+    <title>PlanBSoft - Scaling Indie Game Innovation with Claude Code</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --text-color: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-color: #d97706;
-            --accent-hover: #b45309;
-            --card-bg: #111827;
-            --border-color: #1f2937;
+            --bg-color: #0f172a;
+            --text-color: #cbd5e1;
+            --title-color: #f8fafc;
+            --accent-color: #38bdf8;
+            --accent-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
+            --card-bg: #1e293b;
+            --border-color: #334155;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
+
         .container {
-            max-width: 680px;
-            width: 90%;
-            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        .header {
-            text-align: center;
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
             margin-bottom: 40px;
-            padding-top: 20px;
         }
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
+
+        .studio-tag {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 15px;
-            letter-spacing: -0.02em;
-            background: linear-gradient(to right, #f8fafc, #94a3b8);
+        }
+
+        h1 {
+            color: var(--title-color);
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 0 0 15px 0;
+            font-weight: 800;
+        }
+
+        h1 span {
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .cta-wrapper {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 14px 36px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
-        }
-        .btn:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
-        }
-        .section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        .section h2 {
-            font-size: 1.5rem;
-            margin-top: 0;
+
+        .lead-text {
+            font-size: 1.2rem;
+            color: #94a3b8;
             margin-bottom: 25px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 12px;
-            color: #f1f5f9;
         }
-        .info-group {
-            margin-bottom: 28px;
-        }
-        .info-group:last-child {
-            margin-bottom: 0;
-        }
-        .info-label {
-            font-weight: 700;
-            color: var(--accent-color);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 6px;
-        }
-        .info-value {
-            color: #e2e8f0;
-            font-size: 1.1rem;
-        }
-        .info-description {
-            color: var(--text-muted);
+
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
             font-size: 0.95rem;
-            margin-top: 6px;
-            border-left: 2px solid var(--border-color);
-            padding-left: 12px;
+        }
+
+        .meta-item strong {
+            color: var(--title-color);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .meta-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .meta-item a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: var(--title-color);
+            font-size: 1.6rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: var(--title-color);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        li strong {
+            color: var(--title-color);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="header">
-            <h1>PlanBSoft</h1>
-            <div class="subtitle">Scaling Indie Game Innovation with AI</div>
-        </div>
-        
-        <p style="color: #cbd5e1; font-size: 1.1rem; text-align: center; margin-bottom: 35px;">
-            An independent mobile game studio overcoming resource limitations through advanced AI pipelines. Powered by Unity and Claude 3.5 Sonnet, we build deep, narrative-driven puzzle RPGs for global mobile gamers.
-        </p>
-        
-        <div class="cta-wrapper">
-            <a href="mailto:contact@planbsoft.com" class="btn">Contact Us: contact@planbsoft.com</a>
-        </div>
-
-        <div class="section">
-            <h2>Studio Overview & AI Integration</h2>
+        <header>
+            <div class="studio-tag">Indie Game Studio</div>
+            <h1>PlanBSoft: Scaling Innovation with <span>Claude Code</span></h1>
+            <p class="lead-text">
+                PlanBSoft is a solo independent game studio breaking through resource constraints to build deep, narrative-driven puzzle RPGs for global mobile gamers. By deeply integrating Anthropic's Claude Code into our core framework, we turn a solo developer into a full-scale production team.
+            </p>
             
-            <div class="info-group">
-                <div class="info-label">Core Engine</div>
-                <div class="info-value">Unity Engine (C#)</div>
-            </div>
-
-            <div class="info-group">
-                <div class="info-label">Target Platforms</div>
-                <div class="info-value">Mobile (Google Play & Apple App Store)</div>
-            </div>
-
-            <div class="info-group">
-                <div class="info-label">Development Philosophy & Use Case</div>
-                <div class="info-value">Overcoming the resource limitations of a solo indie studio by deeply integrating cutting-edge AI technologies into core workflows.</div>
-                <div class="info-description">
-                    We leverage Anthropic's Claude 3.5 Sonnet dynamically across coding architecture, complex debugging, and building rich, multi-branched narrative trees for our puzzle RPGs—effectively turning a solo developer into a full-scale production team.
+            <div class="meta-info">
+                <div class="meta-item">
+                    <strong>📬 Contact Us</strong>
+                    <a href="mailto:contact@planbsoft.com">contact@planbsoft.com</a>
+                </div>
+                <div class="meta-item">
+                    <strong>📱 Target Platforms</strong>
+                    Mobile (iOS & Android)
+                </div>
+                <div class="meta-item">
+                    <strong>🎮 Core Genre</strong>
+                    Narrative Puzzle RPG
                 </div>
             </div>
-        </div>
+        </header>
+
+        <section>
+            <h2>Full-Lifecycle Automation with Claude Code</h2>
+            <p>We do not use AI simply as a coding assistant. We embed Claude Code deeply into every stage of the game production lifecycle—from concept to final build simulation—achieving a hyper-efficient pipeline.</p>
+
+            <h3>1. Game Design & Narrative Automation</h3>
+            <ul>
+                <li><strong>Complex Narrative Trees:</strong> Seamlessly converts massive multi-branched plotlines and dialog data into Unity-readable formats (JSON/ScriptableObjects) directly within the CLI environment.</li>
+                <li><strong>Level Design Simulation:</strong> Designs puzzle rules, balances difficulty curves per stage, and tests edge-case exceptions through real-time terminal simulations.</li>
+            </ul>
+
+            <h3>2. Fast-Track Prototyping & Architecture</h3>
+            <ul>
+                <li><strong>Context-Aware CLI Coding:</strong> Eliminates the costly context-switching overhead between the Unity Editor and external interfaces. Claude Code's terminal-based architecture allows for deep code comprehension and non-stop refactoring.</li>
+                <li><strong>Runtime Debugging:</strong> Dynamically traces complex C# runtime bugs within the Unity framework and optimizes performance bottlenecks in real-time.</li>
+            </ul>
+
+            <h3>3. Pipeline Toolkit Development</h3>
+            <ul>
+                <li><strong>Unity Editor Extensions:</strong> Rapidly generates custom editor scripts and automated asset pipelines, reducing manual overhead for repetitive tasks like asset placement and UI component binding.</li>
+            </ul>
+
+            <h3>4. Automated QA & Stress Testing</h3>
+            <ul>
+                <li><strong>Simulation-Based Debugging:</strong> Automatically writes unit test codes to detect soft-locks, game-loop logical errors, and unexpected user flows in the puzzle mechanics before shipping the build.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Program Vision & Goals</h2>
+            <ul>
+                <li><strong>Pushing the Boundaries of Claude Code:</strong> Testing the limits of Claude Code in a high-density solo production environment to establish a milestone benchmark for modern indie game development.</li>
+                <li><strong>Instant Global Localization:</strong> Automating the contextual translation of intricate puzzle RPG lore into multiple languages, significantly accelerating our global go-to-market timeline.</li>
+                <li><strong>A New Paradigm for Indie Studios:</strong> Serving as a premier success story for the Anthropic ecosystem by proving how capital and workforce limitations can be completely transcended through advanced AI alignment.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 PlanBSoft. All rights reserved. Powered by Unity and Claude Code.</p>
+        </footer>
     </div>
 
 </body>
