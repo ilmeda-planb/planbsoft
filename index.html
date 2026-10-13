@@ -4,329 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlanBSoft - Scaling Indie Game Innovation with AI</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-    
     <style>
         :root {
-            --bg-color: #0B0F19;
-            --card-bg: #161F30;
-            --text-main: #F3F4F6;
-            --text-muted: #9CA3AF;
-            --accent-color: #CC7A5C;
-            --accent-blue: #3B82F6;
-            --success-color: #10B981;
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+            --card-bg: #1e293b;
         }
-
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        header {
-            padding: 1.5rem 0;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: 100vh;
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            letter-spacing: -0.5px;
-        }
-
-        .lang-toggle {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-main);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .lang-toggle:hover {
-            border-color: var(--accent-color);
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .highlight {
-            color: var(--accent-color);
-        }
-
-        .hero {
+        .container {
+            max-width: 600px;
+            width: 90%;
+            padding: 40px 20px;
             text-align: center;
-            padding: 8rem 0;
-            background: radial-gradient(circle at top, rgba(204, 122, 92, 0.1) 0%, transparent 60%);
         }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
-
-        .hero p {
-            font-size: 1.25rem;
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        p {
             color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 2.5rem auto;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
         }
-
-        .cta-btn {
+        .btn {
+            display: inline-block;
             background-color: var(--accent-color);
             color: white;
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
+            padding: 12px 32px;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
+            border-radius: 8px;
             transition: background-color 0.2s ease;
+            margin-bottom: 40px;
         }
-
-        .cta-btn:hover {
-            background-color: #B56549;
+        .btn:hover {
+            background-color: var(--accent-hover);
         }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-        }
-
-        .about-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .about-card.full-width {
-            grid-column: span 2;
-        }
-
-        .about-card {
+        .about-section {
             background-color: var(--card-bg);
-            padding: 2rem;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-
-        .about-card h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.75rem;
-            color: var(--accent-color);
+        .about-section h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
         }
-
-        .project-content {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
+        .info-group {
+            margin-bottom: 20px;
         }
-
-        .project-info ul {
-            list-style: none;
-            margin-top: 1.5rem;
+        .info-group:last-child {
+            margin-bottom: 0;
         }
-
-        .project-info li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .project-info li::before {
-            content: "•";
-            color: var(--accent-color);
-            font-size: 1.25rem;
-            position: absolute;
-            left: 0;
-            top: -2px;
-        }
-
-        .project-visual {
-            background-color: var(--card-bg);
-            height: 300px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed rgba(255, 255, 255, 0.1);
-            color: var(--text-muted);
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .roadmap-timeline {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            position: relative;
-            margin-top: 2rem;
-        }
-
-        .roadmap-node {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            position: relative;
-            border-top: 4px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .roadmap-node.completed {
-            border-top-color: var(--text-muted);
-        }
-
-        .roadmap-node.active {
-            border-top-color: var(--accent-color);
-            box-shadow: 0 4px 20px rgba(204, 122, 92, 0.15);
-        }
-
-        .status-badge {
-            display: inline-block;
-            font-size: 0.75rem;
+        .info-label {
             font-weight: 600;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            margin-bottom: 0.75rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            color: var(--text-muted);
-        }
-
-        .active .status-badge {
-            background-color: rgba(204, 122, 92, 0.2);
             color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
         }
-
-        .roadmap-node h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
+        .info-value {
+            color: var(--text-color);
+            font-size: 1.05rem;
         }
-
-        .roadmap-node p {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        footer {
-            background-color: #070A10;
-            padding: 4rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-left p {
-            margin-bottom: 0.5rem;
-        }
-
-        @media (max-width: 900px) {
-            .about-grid, .project-content {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-            .roadmap-timeline {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .footer-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-        }
-
-        .lang-ko { display: none; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <div class="logo">🎮 PlanBSoft</div>
-            <button class="lang-toggle" onclick="toggleLanguage()">Switch to KR</button>
-        </header>
+        <div class="logo">🎮</div>
+        <h1>PlanBSoft: Scaling Indie Game Innovation with AI</h1>
+        <p>An independent mobile game studio overcoming resource limitations through advanced AI pipelines. Powered by Unity and Claude 3.5 Sonnet, we build deep, narrative-driven puzzle RPGs for global mobile gamers.</p>
+        
+        <a href="mailto:contact@planbsoft.com" class="btn">Contact Us</a>
+
+        <div class="about-section">
+            <h2>About PlanBSoft</h2>
+            
+            <div class="info-group">
+                <div class="info-label">Core Engine</div>
+                <div class="info-value">Unity Engine (C#)</div>
+            </div>
+
+            <div class="info-group">
+                <div class="info-label">Target Platforms</div>
+                <div class="info-value">Mobile (Google Play & Apple App Store)</div>
+            </div>
+
+            <div class="info-group">
+                <div class="info-label">Development Philosophy</div>
+                <div class="info-value">Overcoming the resource limitations of a small indie studio by deeply integrating cutting-edge AI technologies (like Claude 3.5 Sonnet) into our coding, debugging, and narrative production workflows.</div>
+            </div>
+        </div>
     </div>
 
-    <section class="hero">
-        <div class="container">
-            <div class="lang-en">
-                <h1>PlanBSoft: Scaling Indie Game Innovation with AI</h1>
-                <p>An independent mobile game studio overcoming resource limitations through advanced AI pipelines. Powered by Unity and Claude 3.5 Sonnet, we build deep, narrative-driven puzzle RPGs for global mobile gamers.</p>
-            </div>
-            <div class="lang-ko">
-                <h1>PlanBSoft: AI로 인디 게임의 한계를 넘다</h1>
-                <p>1인 인디 게임 스튜디오의 리소스 한계를 차세대 AI 파이프라인으로 극복합니다. Unity 엔진 and Claude 3.5 Sonnet을 결합하여, 글로벌 모바일 게이머를 위한 몰입감 넘치는 스토리 중심의 퍼즐 RPG를 개발합니다.</p>
-            </div>
-            <a href="#contact" class="cta-btn">Contact Us</a>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div>
-                    <h2 class="section-title class-en">About<br><span class="highlight">PlanBSoft</span></h2>
-                    <h2 class="section-title class-ko" style="display:none;">스튜디오<br><span class="highlight">소개</span></h2>
-                </div>
-                <div class="about-cards">
-                    <div class="about-card">
-                        <h3 class="lang-en">Core Engine</h3><h3 class="lang-ko">핵심 엔진</h3>
-                        <p>Unity Engine (C#)</p>
-                    </div>
-                    <div class="about-card">
-                        <h3 class="lang-en">Target Platforms</h3><h3 class="lang-ko">타겟 플랫폼</h3>
-                        <p>Mobile (Google Play & Apple App Store)</p>
-                    </div>
-                    <div class="about-card full-width">
-                        <h3 class="lang-en">Development Philosophy</h3><h3 class="lang-ko">개발 철학</h3>
-                        <p class="lang-en">Overcoming the resource limitations of a small indie studio by deeply integrating cutting-edge AI technologies (like Claude 3.5 Sonnet) into our coding, debugging, and narrative production workflows.</p>
-                        <p class="lang-ko">최첨단 AI 기술(Claude 3.5 Sonnet 등)을 코딩, 디버깅, 스토리 제작 워크플로우에 깊이 통합하여 소규모 인디 스튜디오의 자원 한계를 극복합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+</body>
+</html>
