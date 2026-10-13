@@ -6,7 +6,6 @@
     <title>PlanBSoft - Scaling Indie Game Innovation with Claude Code</title>
     <style>
         :root {
-            /* 가독성을 높이기 위해 대비가 명확하고 눈이 편안한 색상으로 조정 */
             --bg-color: #0b0f19;
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
@@ -18,7 +17,6 @@
         }
 
         body {
-            /* 가독성이 검증된 시스템 폰트 및 부드러운 자간 세팅 */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
@@ -49,19 +47,24 @@
             border-radius: 30px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
+        /* 사명 부각을 위해 폰트 크기 극대화 및 서브타이틀과의 계층 구조 명확화 */
         h1 {
             color: #ffffff;
-            font-size: 2.8rem;
-            line-height: 1.25;
-            margin: 0 0 20px 0;
-            font-weight: 800;
-            letter-spacing: -0.02em;
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin: 0 0 12px 0;
+            font-weight: 900;
+            letter-spacing: -0.03em;
         }
 
-        h1 span {
+        .sub-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0 0 28px 0;
+            letter-spacing: -0.01em;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -69,12 +72,11 @@
 
         .lead-text {
             font-size: 1.25rem;
-            line-height: 1.7;
+            line-height: 1.75;
             color: var(--text-secondary);
             margin-bottom: 35px;
         }
 
-        /* 메타 정보 가독성 개선 */
         .meta-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -133,7 +135,6 @@
             margin-bottom: 30px;
         }
 
-        /* 리스트 형태를 그리드 형태의 카드로 변경하여 텍스트 뭉침 현상 해결 */
         .grid-container {
             display: grid;
             grid-template-columns: 1fr;
@@ -188,11 +189,6 @@
             font-weight: bold;
         }
 
-        .feature-card li strong {
-            color: var(--text-primary);
-        }
-
-        /* 비전 세션 전용 스타일 */
         .vision-list {
             padding: 0;
             margin: 0;
@@ -205,15 +201,17 @@
             padding: 20px 24px;
             margin-bottom: 16px;
             border-radius: 0 12px 12px 0;
-            font-size: 1.1rem;
         }
 
         .vision-item strong {
             color: #ffffff;
+            font-size: 1.15rem;
+            display: block;
+            margin-bottom: 4px;
         }
 
         .vision-item p {
-            margin: 4px 0 0 0;
+            margin: 0;
             color: var(--text-secondary);
             font-size: 1.05rem;
         }
@@ -233,9 +231,13 @@
     <div class="container">
         <header>
             <div class="studio-tag">🕹️ Indie Game Studio</div>
-            <h1>PlanBSoft: Scaling Innovation with <span>Claude Code</span></h1>
+            <!-- 사명(PlanBSoft)을 독보적으로 노출 -->
+            <h1>PlanBSoft</h1>
+            <!-- 슬로건을 하단 서브 타이틀로 완전히 격리 및 그라데이션 강조 -->
+            <p class="sub-title">Scaling Indie Game Innovation with Claude Code</p>
+            
             <p class="lead-text">
-                PlanBSoft is a solo independent game studio breaking through resource constraints to build deep, narrative-driven puzzle RPGs for global mobile gamers. By deeply integrating Anthropic's Claude Code into our core framework, we turn a solo developer into a full-scale production team.
+                We are a solo independent game studio breaking through resource constraints to build deep, narrative-driven puzzle RPGs for global mobile gamers. By deeply integrating Anthropic's Claude Code into our core framework, we turn a solo developer into a full-scale production team.
             </p>
             
             <div class="meta-info">
