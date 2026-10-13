@@ -6,55 +6,59 @@
     <title>PlanBSoft - Scaling Indie Game Innovation with Claude Code</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --text-color: #cbd5e1;
-            --title-color: #f8fafc;
+            /* 가독성을 높이기 위해 대비가 명확하고 눈이 편안한 색상으로 조정 */
+            --bg-color: #0b0f19;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
             --accent-color: #38bdf8;
-            --accent-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
-            --card-bg: #1e293b;
-            --border-color: #334155;
+            --accent-gradient: linear-gradient(135deg, #38bdf8, #6366f1);
+            --card-bg: #141b2d;
+            --card-hover: #1e2640;
+            --border-color: #223049;
         }
 
         body {
+            /* 가독성이 검증된 시스템 폰트 및 부드러운 자간 세팅 */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
+            color: var(--text-primary);
+            line-height: 1.8;
+            letter-spacing: -0.01em;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 840px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 24px;
         }
 
         header {
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .studio-tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background: var(--accent-gradient);
-            color: #0f172a;
+            color: #0b0f19;
             font-weight: 700;
-            font-size: 0.85rem;
-            padding: 4px 12px;
-            border-radius: 20px;
+            font-size: 0.8rem;
+            padding: 6px 14px;
+            border-radius: 30px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
         }
 
         h1 {
-            color: var(--title-color);
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin: 0 0 15px 0;
+            color: #ffffff;
+            font-size: 2.8rem;
+            line-height: 1.25;
+            margin: 0 0 20px 0;
             font-weight: 800;
+            letter-spacing: -0.02em;
         }
 
         h1 span {
@@ -64,83 +68,163 @@
         }
 
         .lead-text {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-bottom: 25px;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 35px;
         }
 
+        /* 메타 정보 가독성 개선 */
         .meta-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+
+        .meta-card {
             background-color: var(--card-bg);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid var(--border-color);
-            font-size: 0.95rem;
         }
 
-        .meta-item strong {
-            color: var(--title-color);
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .meta-item a {
+        .meta-card strong {
             color: var(--accent-color);
-            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
         }
 
-        .meta-item a:hover {
-            text-decoration: underline;
+        .meta-card p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .meta-card a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-color);
+        }
+
+        .meta-card a:hover {
+            color: var(--accent-color);
         }
 
         h2 {
-            color: var(--title-color);
-            font-size: 1.6rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 15px;
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        h3 {
-            color: var(--title-color);
-            font-size: 1.2rem;
-            margin-top: 25px;
-            margin-bottom: 10px;
+        .section-desc {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
         }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
+        /* 리스트 형태를 그리드 형태의 카드로 변경하여 텍스트 뭉침 현상 해결 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
-        li {
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 12px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .feature-card:hover {
+            background-color: var(--card-hover);
+            transform: translateY(-2px);
+        }
+
+        .feature-card h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-card li {
             position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
         }
 
-        li::before {
-            content: "✓";
+        .feature-card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-card li::before {
+            content: "•";
             position: absolute;
             left: 0;
             color: var(--accent-color);
             font-weight: bold;
         }
 
-        li strong {
-            color: var(--title-color);
+        .feature-card li strong {
+            color: var(--text-primary);
+        }
+
+        /* 비전 세션 전용 스타일 */
+        .vision-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .vision-item {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            border-radius: 0 12px 12px 0;
+            font-size: 1.1rem;
+        }
+
+        .vision-item strong {
+            color: #ffffff;
+        }
+
+        .vision-item p {
+            margin: 4px 0 0 0;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
         }
 
         footer {
-            margin-top: 60px;
-            padding-top: 20px;
+            margin-top: 80px;
+            padding-top: 30px;
             border-top: 1px solid var(--border-color);
             text-align: center;
-            font-size: 0.9rem;
-            color: #64748b;
+            font-size: 0.95rem;
+            color: #475569;
         }
     </style>
 </head>
@@ -148,68 +232,67 @@
 
     <div class="container">
         <header>
-            <div class="studio-tag">Indie Game Studio</div>
+            <div class="studio-tag">🕹️ Indie Game Studio</div>
             <h1>PlanBSoft: Scaling Innovation with <span>Claude Code</span></h1>
             <p class="lead-text">
                 PlanBSoft is a solo independent game studio breaking through resource constraints to build deep, narrative-driven puzzle RPGs for global mobile gamers. By deeply integrating Anthropic's Claude Code into our core framework, we turn a solo developer into a full-scale production team.
             </p>
             
             <div class="meta-info">
-                <div class="meta-item">
+                <div class="meta-card">
                     <strong>📬 Contact Us</strong>
-                    <a href="mailto:contact@planbsoft.com">contact@planbsoft.com</a>
+                    <p><a href="mailto:contact@planbsoft.com">contact@planbsoft.com</a></p>
                 </div>
-                <div class="meta-item">
+                <div class="meta-card">
                     <strong>📱 Target Platforms</strong>
-                    Mobile (iOS & Android)
+                    <p>iOS & Android</p>
                 </div>
-                <div class="meta-item">
+                <div class="meta-card">
                     <strong>🎮 Core Genre</strong>
-                    Narrative Puzzle RPG
+                    <p>Narrative Puzzle RPG</p>
                 </div>
             </div>
         </header>
 
         <section>
-            <h2>Full-Lifecycle Automation with Claude Code</h2>
-            <p>We do not use AI simply as a coding assistant. We embed Claude Code deeply into every stage of the game production lifecycle—from concept to final build simulation—achieving a hyper-efficient pipeline.</p>
+            <h2>⚙️ Full-Lifecycle Automation</h2>
+            <p class="section-desc">We do not use AI simply as a coding assistant. We embed Claude Code deeply into every stage of the game production lifecycle—from concept to final build simulation—achieving a hyper-efficient pipeline.</p>
 
-            <h3>1. Game Design & Narrative Automation</h3>
-            <ul>
-                <li><strong>Complex Narrative Trees:</strong> Seamlessly converts massive multi-branched plotlines and dialog data into Unity-readable formats (JSON/ScriptableObjects) directly within the CLI environment.</li>
-                <li><strong>Level Design Simulation:</strong> Designs puzzle rules, balances difficulty curves per stage, and tests edge-case exceptions through real-time terminal simulations.</li>
-            </ul>
+            <div class="grid-container">
+                <div class="feature-card">
+                    <h3>🔮 1. Game Design & Narrative</h3>
+                    <ul>
+                        <li><strong>Complex Narrative Trees:</strong> Seamlessly converts massive multi-branched plotlines and dialog data into Unity-readable formats (JSON/ScriptableObjects) directly within the CLI environment.</li>
+                        <li><strong>Level Design Simulation:</strong> Designs puzzle rules, balances difficulty curves per stage, and tests edge-case exceptions through real-time terminal simulations.</li>
+                    </ul>
+                </div>
 
-            <h3>2. Fast-Track Prototyping & Architecture</h3>
-            <ul>
-                <li><strong>Context-Aware CLI Coding:</strong> Eliminates the costly context-switching overhead between the Unity Editor and external interfaces. Claude Code's terminal-based architecture allows for deep code comprehension and non-stop refactoring.</li>
-                <li><strong>Runtime Debugging:</strong> Dynamically traces complex C# runtime bugs within the Unity framework and optimizes performance bottlenecks in real-time.</li>
-            </ul>
+                <div class="feature-card">
+                    <h3>⚡ 2. Fast-Track Prototyping</h3>
+                    <ul>
+                        <li><strong>Context-Aware CLI Coding:</strong> Eliminates the costly context-switching overhead between the Unity Editor and external interfaces. Claude Code's terminal-based architecture allows for deep code comprehension.</li>
+                        <li><strong>Runtime Debugging:</strong> Dynamically traces complex C# runtime bugs within the Unity framework and optimizes performance bottlenecks in real-time.</li>
+                    </ul>
+                </div>
 
-            <h3>3. Pipeline Toolkit Development</h3>
-            <ul>
-                <li><strong>Unity Editor Extensions:</strong> Rapidly generates custom editor scripts and automated asset pipelines, reducing manual overhead for repetitive tasks like asset placement and UI component binding.</li>
-            </ul>
+                <div class="feature-card">
+                    <h3>🛠️ 3. Pipeline Toolkit Development</h3>
+                    <ul>
+                        <li><strong>Unity Editor Extensions:</strong> Rapidly generates custom editor scripts and automated asset pipelines, reducing manual overhead for repetitive tasks like asset placement and UI component binding.</li>
+                    </ul>
+                </div>
 
-            <h3>4. Automated QA & Stress Testing</h3>
-            <ul>
-                <li><strong>Simulation-Based Debugging:</strong> Automatically writes unit test codes to detect soft-locks, game-loop logical errors, and unexpected user flows in the puzzle mechanics before shipping the build.</li>
-            </ul>
+                <div class="feature-card">
+                    <h3>🧪 4. Automated QA & Testing</h3>
+                    <ul>
+                        <li><strong>Simulation-Based Debugging:</strong> Automatically writes unit test codes to detect soft-locks, game-loop logical errors, and unexpected user flows in the puzzle mechanics before shipping the build.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section>
-            <h2>Program Vision & Goals</h2>
-            <ul>
-                <li><strong>Pushing the Boundaries of Claude Code:</strong> Testing the limits of Claude Code in a high-density solo production environment to establish a milestone benchmark for modern indie game development.</li>
-                <li><strong>Instant Global Localization:</strong> Automating the contextual translation of intricate puzzle RPG lore into multiple languages, significantly accelerating our global go-to-market timeline.</li>
-                <li><strong>A New Paradigm for Indie Studios:</strong> Serving as a premier success story for the Anthropic ecosystem by proving how capital and workforce limitations can be completely transcended through advanced AI alignment.</li>
-            </ul>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 PlanBSoft. All rights reserved. Powered by Unity and Claude Code.</p>
-        </footer>
-    </div>
-
-</body>
-</html>
+            <h2>🎯 Program Vision & Goals</h2>
+            <div class="vision-list">
+                <div class="vision-item">
+                    <strong>Pushing the Boundaries of Claude Code</strong>
